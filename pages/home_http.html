@@ -1,0 +1,22 @@
+<!doctype html> 
+<html> 
+    <head>
+        <title>My awesome website</title>
+        <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    </head>
+
+    <body> 
+        <h1>Home</h1>
+        <script>
+            $.ajax("http://localhost:3001/api/inventory").then(data => {
+                var body = $('body');
+                for (var i = 0; i < data.length; i++) {
+                    
+                }
+            })
+        </script>
+    </body>
+</html>

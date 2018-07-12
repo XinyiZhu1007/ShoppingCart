@@ -1,0 +1,15 @@
+<h1>HOME</h1>
+
+{{#if consition}}
+    <h2>{{subheading}}</h2>
+{{/if}}
+
+<h3> {{subtext}} </h3>
+
+<h3> {{foo "param333" }} </h3>
+
+<!-- partials, reusable and can be injected across pages
+partials are to be in partials folder !-->
+{{> list}}
+{{> list}}
+{{> list}}

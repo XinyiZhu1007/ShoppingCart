@@ -1,0 +1,25 @@
+<!doctype html>
+
+<html>
+    <head>
+        {{!-- <p> content from layout</p> --}}
+        <title>{{title}}</title>
+        <!-- whatever title will be will depend on individual setting for the page, 
+        see server.js app.get => response.render !-->
+        
+        
+         <!-- {{#each cssSources}}
+
+        {{/each}} !-->
+
+        {{#each javascriptSources}}
+            <script src={{this}}></script>
+        {{/each}}
+
+
+    </head>
+
+    <body>
+        {{{ body }}}
+    </body>
+</html>

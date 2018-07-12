@@ -1,0 +1,46 @@
+{{#each inventory}}
+    <li> 
+        <div class="product_name" data_num="{{this.id}}">{{this.product_name}}</div> 
+        <button class="deleteButton" id="deleteButton_{{this.id}}" data_num="{{this.id}}"> x </button>    
+    </li>
+{{/each}}
+
+<input id="newInput" type="text"><button id="addNewButton"> +</button></input>
+
+<script>
+    $('body').on('click', '.deleteButton', function(){
+        var id = $(this).attr('data_num');
+        console.log("delete button clicked on " + id);
+        $.ajax({
+            method: "DELETE",
+            url: `/api/inventory/${id}`
+        });
+    });
+
+    $('body').on('click', "#addNewButton", function() {
+        console.log($('#newInput').val());
+        $.ajax({
+            method: "POST",
+            url: "/api/inventory",
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json"
+            },
+            data: JSON.stringify(
+                
+            )
+        })
+    })
+
+    // when double click on product name, change name to input box 
+    // with value of the original product name
+    // and change the deletebutton to tick
+
+    $('body').on('dblclick', '.product_name', function() {
+        var currentValue = $(this).text();
+        var index = $(this).attr('data_num');
+        $(this).replaceWith(`<input type="text" value=${currentValue}/>`);
+        $(`#deleteButton_${index}`).text("YES~!").attr("id", `addButton_${index}`);
+    });
+
+</script>
